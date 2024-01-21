@@ -1,30 +1,19 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+    <router-view />
 </template>
+<script lang="ts" setup>
+import { Modal, Button } from '@arco-design/web-vue';
+import { h } from 'vue';
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+const handleClick3 = () => {
+    // @ts-ignore
+    plus.screen.lockOrientation("landscape-primary")
 }
 
-#nav {
-  padding: 30px;
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+const click2 = () => {
+    // @ts-ignore
+    plus.navigator.setFullscreen(true);
 }
-</style>
+</script>
+<style lang="scss"></style>

@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
+	<script type="text/javascript">
+		
+		document.addEventListener('plusready', function(){
+			//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。")
+			// plus.screen.lockOrientation("landscape-primary"); 
+		});
+		
+	</script>
   </head>
   <body>
     <noscript>
