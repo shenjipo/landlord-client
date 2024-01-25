@@ -6,22 +6,35 @@
     </div>
 </template>
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-const router = useRouter()
+import { useStore } from '@/store/index'
+import { v4 as uuidv4 } from 'uuid'
+import { clearWs } from '@/ws'
 
+const router = useRouter()
+const store = useStore()
 
 const userName = ref('')
 const toolTip = ref('')
+onMounted(() => {
+    clearWs()
+})
 const handleClick = () => {
     if (userName.value.length <= 0) {
         toolTip.value = '请输入用户名'
         return
     }
-    // @ts-ignore 设置横屏+全屏
-    plus.navigator.setFullscreen(true);
-    // @ts-ignore
-    plus.screen.lockOrientation("landscape-primary")
+    if ('ontouchstart' in document.documentElement) {
+        // @ts-ignore 设置横屏+全屏
+        plus.navigator.setFullscreen(true);
+        // @ts-ignore
+        plus.screen.lockOrientation("landscape-primary")
+    }
+    store.setUser({
+        name: userName.value,
+        uuid: uuidv4(),
+    })
     router.push({
         name: 'WaitingHall'
     })
