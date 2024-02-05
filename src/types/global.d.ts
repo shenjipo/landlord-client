@@ -1,4 +1,7 @@
+export { };
+
 declare global {
+
     namespace NodeJS {
         interface ProcessEnv {
             VUE_APP_BASE_API: string;
@@ -6,5 +9,5 @@ declare global {
             VUE_APP_WS_BASE_URL: string;
         }
     }
+    type Nullable<T> = undefined | T
 }
-export { }

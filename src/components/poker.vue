@@ -1,18 +1,23 @@
 <template>
-    <div class="poker" @click="handleClick" :class="props.pokerClass">
+    <div class="poker" @click="handleClick" :class="getClass">
 
     </div>
 </template>
 <script lang="ts" setup>
-
+import { computed } from 'vue';
+import { Card } from '@/constant';
+const emit = defineEmits(['updateCardState']);
 interface Props {
-    pokerClass: string,
-    pkoerState: string,
+    card: Card,
+    index: number
 }
 const props = defineProps<Props>()
 
+const getClass = computed(() => {
+    return props.card.cardState === 'selected' ? `${props.card.cardClass} top` : `${props.card.cardClass}`
+})
 const handleClick = () => {
-
+    emit('updateCardState', props.index)
 }
 </script>
 <style lang="scss" scoped>
@@ -22,5 +27,9 @@ const handleClick = () => {
     background-repeat: no-repeat;
     background-size: contain;
 
+}
+
+.top {
+    top: 10px;
 }
 </style>

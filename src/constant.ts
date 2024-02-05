@@ -11,31 +11,47 @@ export enum STATE {
     hidden = 'hidden'
 }
 export enum VALUE {
-    one,
-    two,
-    three,
-    four,
-    five,
-    six,
-    seven,
-    eight,
-    nine,
-    ten,
-    J,
-    Q,
-    K,
-    SmallGhost,
-    BigGhost
+    one = 'one',
+    two = 'two',
+    three = 'three',
+    four = 'four',
+    five = 'five',
+    six = 'six',
+    seven = 'seven',
+    eight = 'eight',
+    nine = 'nine',
+    ten = 'ten',
+    J = 'J',
+    Q = 'Q',
+    K = 'K ',
+    SmallGhost = 'SmallGhost',
+    BigGhost = 'BigGhost'
 
 }
-
+export enum PlayType {
+    king = 'king', // 王炸
+    bomb = 'bomb', // 炸弹
+    fourSameWithTwo = 'fourSameWithTwo', // 四带二
+    threeStaright = 'threeStaright', // 三顺 444555
+    threeStarightWithTwo = 'threeStarightWithTwo', // 三顺带单只  3334449K
+    threeStarightWithFour = 'threeStarightWithFour', // 三顺带对子 3334445566
+    twoStraight = 'twoStraight', //  二顺 223344
+    oneStraight = 'oneStraight', // 单顺 34567 不能带2
+    threeWithTwo = 'threeWithTwo', // 三代二
+    threeWithOne = 'threeWithOne', // 三代一
+    three = 'three',
+    pairs = 'pairs',
+    single = 'single',
+}
 export interface Card {
     cardClass: string,
     cardType: FLOWER,
-    cardState: STATE,
-    cardValue: VALUE
+    cardState: string,
+    cardValue: VALUE,
+    left: string,
+    right: string
 }
-export const CardClass:any = {
+export const CardClass: any = {
     'spade': {
         'one': 'spade-one',
         'two': 'spade-two',
