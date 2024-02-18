@@ -9,11 +9,15 @@ import { Card } from '@/constant';
 const emit = defineEmits(['updateCardState']);
 interface Props {
     card: Card,
-    index: number
+    index: number,
+    pos: string
 }
 const props = defineProps<Props>()
 
 const getClass = computed(() => {
+    if (props.pos !== 'own') {
+        return 'hidden'
+    }
     return props.card.cardState === 'selected' ? `${props.card.cardClass} top` : `${props.card.cardClass}`
 })
 const handleClick = () => {
@@ -22,14 +26,14 @@ const handleClick = () => {
 </script>
 <style lang="scss" scoped>
 .poker {
-    width: 90px;
-    height: 120px;
+    width: calc((100vw - 200px) / 8);
+    height: 85%;
     background-repeat: no-repeat;
     background-size: contain;
 
 }
 
 .top {
-    top: 10px;
+    top: -10px;
 }
 </style>

@@ -116,30 +116,29 @@ const handleExit = () => {
     background-color: #555;
 
     .box-room {
-        padding: 20px 20px 0 20px;
+        padding: 20px 20px 0 40px;
         height: calc(100% - 70px);
         display: flex;
         row-gap: 30px;
         column-gap: 30px;
-        ;
         flex-wrap: wrap;
         justify-content: flex-start;
         align-items: flex-start;
         align-content: flex-start;
-
+        overflow-y: auto;
         .room-item {
-            width: 7%;
+            width: 120px;
             position: relative;
             height: 140px;
 
             .soft {
                 height: 30px;
                 width: 30px;
-                display: block;
                 border: solid 1px #7b7b7b;
                 cursor: pointer;
                 position: absolute;
-
+                text-align: center;
+                color: #94BFFF;
             }
 
             .center {
